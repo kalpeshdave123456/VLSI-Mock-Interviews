@@ -1,0 +1,10 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="800" height="320" viewBox="0 0 800 320">
+<rect width="100%" height="100%" fill="white"/><text x="30" y="40" font-size="28" font-family="Arial" font-weight="700">4:1 Mux Truth Table</text>
+<rect x="120" y="80" width="560" height="190" fill="#fff" stroke="#111" stroke-width="2"/>
+<line x1="120" y1="120" x2="680" y2="120" stroke="#111"/><line x1="260" y1="80" x2="260" y2="270" stroke="#111"/><line x1="400" y1="80" x2="400" y2="270" stroke="#111"/><line x1="540" y1="80" x2="540" y2="270" stroke="#111"/>
+<text x="180" y="105" font-size="22">S1</text><text x="320" y="105" font-size="22">S0</text><text x="450" y="105" font-size="22">Y</text><text x="575" y="105" font-size="22">Selected Input</text>
+<text x="175" y="155" font-size="20">0</text><text x="315" y="155" font-size="20">0</text><text x="445" y="155" font-size="20">D0</text><text x="585" y="155" font-size="20">D0</text>
+<text x="175" y="190" font-size="20">0</text><text x="315" y="190" font-size="20">1</text><text x="445" y="190" font-size="20">D1</text><text x="585" y="190" font-size="20">D1</text>
+<text x="175" y="225" font-size="20">1</text><text x="315" y="225" font-size="20">0</text><text x="445" y="225" font-size="20">D2</text><text x="585" y="225" font-size="20">D2</text>
+<text x="175" y="260" font-size="20">1</text><text x="315" y="260" font-size="20">1</text><text x="445" y="260" font-size="20">D3</text><text x="585" y="260" font-size="20">D3</text>
+</svg>
