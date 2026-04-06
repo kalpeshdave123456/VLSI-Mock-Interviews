@@ -1,0 +1,209 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>VLSI Interview Prep - NVIDIA / AMD / Qualcomm</title>
+  <meta name="theme-color" content="#0f172a" />
+  <meta name="description" content="Mobile-friendly VLSI interview prep app with company-specific mock tests, question bank, explanations, diagrams, and offline support." />
+  <link rel="manifest" href="manifest.json" />
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+  <header class="topbar">
+    <div>
+      <h1>VLSI Interview Prep</h1>
+      <p class="subtitle">NVIDIA · AMD · Qualcomm · RTL · PD · Verification</p>
+    </div>
+    <button id="installBtn" class="ghost small hidden" type="button">Install App</button>
+  </header>
+
+  <nav class="tabbar">
+    <button class="tab active" data-tab="home" type="button">Home</button>
+    <button class="tab" data-tab="tests" type="button">Mock Tests</button>
+    <button class="tab" data-tab="bank" type="button">Question Bank</button>
+    <button class="tab" data-tab="study" type="button">Diagrams</button>
+    <button class="tab" data-tab="about" type="button">About</button>
+  </nav>
+
+  <main>
+    <section id="home" class="view active">
+      <div class="hero card">
+        <h2>Complete Interview Pack</h2>
+        <p>
+          24 mock tests, 90 scored MCQs, company-style discussion prompts, full explanations,
+          timing/power/CDC diagrams, and offline-ready PWA packaging.
+        </p>
+        <div class="pill-row">
+          <span class="pill">24 tests</span>
+          <span class="pill">90 MCQs</span>
+          <span class="pill">Mobile first</span>
+          <span class="pill">Offline support</span>
+        </div>
+      </div>
+
+      <div class="grid two">
+        <div class="card">
+          <h3>What is inside</h3>
+          <ul class="clean">
+            <li>8 NVIDIA tests</li>
+            <li>8 AMD tests</li>
+            <li>8 Qualcomm tests</li>
+            <li>Company-specific discussion prompts</li>
+            <li>Responsive GitHub Pages build</li>
+          </ul>
+        </div>
+        <div class="card">
+          <h3>Recommended prep order</h3>
+          <ol class="clean">
+            <li>Start with 1 online test per company</li>
+            <li>Review explanations by topic</li>
+            <li>Use diagrams + company bank</li>
+            <li>Finish with offline final-round mocks</li>
+          </ol>
+        </div>
+      </div>
+
+      <div class="grid three stats" id="statsCards"></div>
+    </section>
+
+    <section id="tests" class="view">
+      <div class="grid two">
+        <div class="card">
+          <h2>Filter tests</h2>
+          <div class="controls">
+            <label>Company
+              <select id="companyFilter">
+                <option value="All">All</option>
+                <option value="NVIDIA">NVIDIA</option>
+                <option value="AMD">AMD</option>
+                <option value="Qualcomm">Qualcomm</option>
+              </select>
+            </label>
+            <label>Round
+              <select id="roundFilter">
+                <option value="All">All</option>
+                <option value="Online">Online</option>
+                <option value="Offline">Offline</option>
+              </select>
+            </label>
+            <label>Role
+              <select id="roleFilter">
+                <option value="All">All</option>
+                <option value="RTL">RTL</option>
+                <option value="Physical Design">Physical Design</option>
+                <option value="Verification">Verification</option>
+              </select>
+            </label>
+          </div>
+        </div>
+        <div class="card">
+          <h2>Your progress</h2>
+          <p id="progressText">No attempts yet.</p>
+          <button class="ghost" id="resetProgressBtn" type="button">Reset local progress</button>
+        </div>
+      </div>
+
+      <div id="testList" class="list"></div>
+      <div id="runner" class="hidden"></div>
+      <div id="resultPanel" class="hidden"></div>
+    </section>
+
+    <section id="bank" class="view">
+      <div class="grid two">
+        <div class="card">
+          <h2>MCQ question bank</h2>
+          <div class="controls">
+            <label>Topic
+              <select id="bankTopic">
+                <option value="All">All</option>
+              </select>
+            </label>
+            <label>Difficulty
+              <select id="bankDifficulty">
+                <option value="All">All</option>
+                <option value="Moderate">Moderate</option>
+                <option value="Hard">Hard</option>
+              </select>
+            </label>
+            <label>Company
+              <select id="bankCompany">
+                <option value="All">All</option>
+                <option value="NVIDIA">NVIDIA</option>
+                <option value="AMD">AMD</option>
+                <option value="Qualcomm">Qualcomm</option>
+              </select>
+            </label>
+          </div>
+        </div>
+
+        <div class="card">
+          <h2>Company discussion bank</h2>
+          <label>Company
+            <select id="discussionCompany">
+              <option value="NVIDIA">NVIDIA</option>
+              <option value="AMD">AMD</option>
+              <option value="Qualcomm">Qualcomm</option>
+            </select>
+          </label>
+          <div id="discussionList" class="mini-list"></div>
+        </div>
+      </div>
+
+      <div id="questionBankList" class="list"></div>
+    </section>
+
+    <section id="study" class="view">
+      <div class="grid two">
+        <div class="card diagram-card">
+          <h3>Setup / Hold</h3>
+          <img src="assets/setup_hold.svg" alt="Setup and hold timing diagram" />
+        </div>
+        <div class="card diagram-card">
+          <h3>2-Flop Synchronizer</h3>
+          <img src="assets/cdc_sync.svg" alt="CDC synchronizer diagram" />
+        </div>
+        <div class="card diagram-card">
+          <h3>Asynchronous FIFO</h3>
+          <img src="assets/fifo_gray.svg" alt="Async FIFO Gray pointer diagram" />
+        </div>
+        <div class="card diagram-card">
+          <h3>4:1 Mux Truth Table</h3>
+          <img src="assets/mux_truth_table.svg" alt="Mux truth table diagram" />
+        </div>
+        <div class="card diagram-card">
+          <h3>Memory Hierarchy</h3>
+          <img src="assets/cache_hierarchy.svg" alt="Memory hierarchy chart" />
+        </div>
+        <div class="card diagram-card">
+          <h3>Clock Tree Synthesis</h3>
+          <img src="assets/cts_skew.svg" alt="CTS skew diagram" />
+        </div>
+      </div>
+    </section>
+
+    <section id="about" class="view">
+      <div class="card">
+        <h2>About this pack</h2>
+        <p>
+          This app combines your attached syllabus topics with public interview-style practice material for
+          NVIDIA, AMD, and Qualcomm-aligned roles. The company bank is representative practice material,
+          not an official released question list.
+        </p>
+        <p>
+          See <code>docs/INSTALL.md</code> for GitHub Pages deployment and <code>docs/sources.md</code> for notes.
+        </p>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    <span>Folder: VLSI-Interview-Prep-GitHub-Fixed</span>
+    <span>GitHub Pages ready</span>
+  </footer>
+
+  <script src="data/question_bank.js"></script>
+  <script src="data/tests.js"></script>
+  <script src="app.js"></script>
+</body>
+</html>
